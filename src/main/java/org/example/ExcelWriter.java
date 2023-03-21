@@ -31,6 +31,15 @@ public class ExcelWriter {
             cell.setCellValue((char) ('a' + i));
         }
 
+        for (int i = 0; i < 10; i++) {
+            Row row = sheet.getRow(i);
+            if (row == null) {
+                row = sheet.createRow(i);
+            }
+            Cell cell = row.createCell(2);
+            cell.setCellValue(33);
+        }
+
         // 파일에 저장
         FileOutputStream fileOut = new FileOutputStream("example.xlsx");
         workbook.write(fileOut);
